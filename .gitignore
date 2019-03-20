@@ -1,0 +1,9 @@
+.DS_Store
+*.tfvars
+*.tfstate
+*.tfstate.backup
+*.log
+.terraform/
+
+outputs/
+

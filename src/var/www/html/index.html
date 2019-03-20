@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+      <link rel="stylesheet" href="node_modules/xterm/dist/xterm.css" />
+      <script src="node_modules/xterm/dist/xterm.js"></script>
+      <script src="node_modules/xterm/dist/addons/attach/attach.js"></script>
+      <script src="node_modules/xterm/dist/addons/fit/fit.js"></script>
+    </head>
+    <body>
+      <div id="terminal"></div>
+      <script>
+      window.onload = () => {
+        const term = new Terminal(),
+              protocol = (location.protocol === 'https:') ? 'wss://' : 'ws://',
+              socketURL = protocol + location.hostname + ((location.port) ? (':' + location.port) : '') + "/socket/containers/websocket/attach/ws?logs=0&stream=1&stdin=1&stdout=1&stderr=1";
+              sock = new WebSocket(socketURL);
+
+        Terminal.applyAddon(attach);
+        Terminal.applyAddon(fit);
+        term.open(document.getElementById('terminal'));
+        term.write('$ ')
+
+        const socket = new WebSocket(socketURL)
+        sock.addEventListener('open', () => {
+          term.attach(socket)
+        });
+        sock.addEventListener('close', () => {
+          alert("socket closed")
+        });
+        term.fit();
+      }
+      </script>
+    </body>
+  </html>
