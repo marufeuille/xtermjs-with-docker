@@ -18,6 +18,9 @@ and now, this demo only deproyable
 
 2. Write Your config like below.
 
+sample config is terraform.tfvars.sample
+
+Rename to terraform.tfvars and write below.
 
 ```terraform.tfvars
 ACCESS_KEY=YOUR_ACCESSKEY
