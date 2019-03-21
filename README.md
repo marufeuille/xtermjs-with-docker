@@ -35,3 +35,14 @@ bash bootstrap.sh
 
 this commands get current global ip and set sg rule.
 because docker remote api is very dangerous to publish all over the world.
+
+## Maybe will be requently asked question.
+### Does not connect web
+
+- This auto deploy scripts set Your Global IP to Security Group.
+- This Global IP is Your Development Enviroment.
+- If you use remote enviroment like cloud, you modify Security Group after setup.
+
+### Want to connect ecs via ssh
+
+- If deploy is finished, SecretKey is on outputs/id_rsa

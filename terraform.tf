@@ -69,7 +69,7 @@ resource "alicloud_instance" "xterm-ecs" {
   system_disk_category = "cloud_efficiency"
   security_groups      = ["${alicloud_security_group.sg.id}"]
   vswitch_id           = "${alicloud_vswitch.vsw.id}"
-  user_data            = "#!/bin/bash\necho '${file("src/var/www/html/index.html")}' > /tmp/index.html\necho '${file("src/etc/nginx/conf.d/websocket.conf")}' > /tmp/websocket.conf\necho '${file("src/etc/systemd/system/docker.service.d/override.conf")}' > /tmp/override.conf\n${file("init.sh")}"
+  user_data            = "#!/bin/bash\necho '${file("src/var/www/html/index.html")}' > /tmp/index.html\necho '${file("src/etc/nginx/conf.d/websocket.conf")}' > /tmp/websocket.conf\necho '${file("src/etc/systemd/system/docker.service.d/override.conf")}' > /tmp/override.conf\n${file("src/init.sh")}"
 }
 
 resource "alicloud_key_pair_attachment" "attach" {
