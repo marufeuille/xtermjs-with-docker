@@ -36,7 +36,7 @@ bash bootstrap.sh
 this commands get current global ip and set sg rule.
 because docker remote api is very dangerous to publish all over the world.
 
-## Maybe will be requently asked question.
+## Will be requently asked question.
 ### Does not connect web
 
 - This auto deploy scripts set Your Global IP to Security Group.
